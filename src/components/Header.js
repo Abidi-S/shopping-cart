@@ -27,7 +27,7 @@ const Header = () => {
           <Dropdown alignRight>
             <DropdownToggle variant="success">
               <FaShoppingCart color="white" fontSize="25px" />
-              <Badge>{10}</Badge>
+              <Badge bg="none">{10}</Badge>
             </DropdownToggle>
             <DropdownMenu style={{ minWidth: 370 }}>
               <span style={{ padding: 10 }}>Cart is empty.</span>
