@@ -1,4 +1,4 @@
-import React, { createContext } from "react";
+import React, { createContext, useContext, useReducer } from "react";
 import {
   rand,
   randBoolean,
@@ -8,6 +8,7 @@ import {
   randUuid,
   seed,
 } from "@ngneat/falso";
+import { cartReducer } from "./Reducers";
 
 const CartContext = createContext();
 
@@ -23,8 +24,21 @@ const Context = ({ children }) => {
     fastDelivery: randBoolean(),
     ratings: rand([1, 2, 3, 4, 5]),
   }));
-  console.log(products);
-  return <CartContext.Provider>{children}</CartContext.Provider>;
+
+  const [state, dispatch] = useReducer(cartReducer, {
+    products: products,
+    cart: [],
+  });
+
+  return (
+    <CartContext.Provider value={{ state, dispatch }}>
+      {children}
+    </CartContext.Provider>
+  );
 };
 
 export default Context;
+
+export const CartState = () => {
+  return useContext(CartContext);
+};
