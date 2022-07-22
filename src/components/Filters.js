@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, Form } from "react-bootstrap";
+import { Rating } from "react-native-elements";
 import "./styles.css";
 
 const Filters = () => {
@@ -23,6 +24,10 @@ const Filters = () => {
           type="radio"
           id={`inline-2`}
         />
+      </span>
+      <span>
+        <label style={{ paddingRight: 10 }}>Rating: </label>
+        <Rating rating={byRating} style={{ cursor: "pointer" }} />
       </span>
       <Button variant="light">Clear Filters</Button>
     </div>
