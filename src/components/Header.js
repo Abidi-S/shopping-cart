@@ -24,7 +24,7 @@ const Header = () => {
             placeholder="Whatchu looking for?"
             className="m-auto"
           />
-          <Dropdown alignRight>
+          <Dropdown>
             <DropdownToggle variant="success">
               <FaShoppingCart color="white" fontSize="25px" />
               <Badge bg="none">{10}</Badge>
